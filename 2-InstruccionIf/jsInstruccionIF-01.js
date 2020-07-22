@@ -2,7 +2,7 @@ function mostrar()
 {
 	//tomo la edad  
 	var edad;
-	var condicion;
+	//var condicion;
 	edad = txtIdEdad.value;
 
    /* verdadero = 1 = true
@@ -11,7 +11,7 @@ function mostrar()
 	//condicion= 9 == 7;
     //alert(condicion);
 
-	if(edad == 15)
+	if(edad == 15) //no finaliza con , si se lo pone anula el if. 
 	{
 		alert ("Niña bonita");
 	}
