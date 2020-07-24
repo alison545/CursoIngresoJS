@@ -12,36 +12,79 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
-    
+    var precio;
     var cantidadLamparas;
-    var precioLamparas;
-    var precioDescuento;
     var marca;
-    var precioFinal;
+    var precioDescuento;
+    var importeFinal;
+    var impuesto;
 
-   
+    precio = 35;
+    precio = parseInt(precio);
+
+    precioDescuento= parseInt(precioDescuento);
+
     cantidadLamparas = txtIdCantidad.value;
-    cantidadLamparas=parseInt(cantidadLamparas);
-    precioLamparas = 35;
-    marca= Marca.value;
-    
+    cantidadLamparas = parseInt(cantidadLamparas);
+    marca = Marca.value;
 
     if(cantidadLamparas > 5)
     {
-       precioDescuento = precioLamparas * 50/100;
-       precioFinal = (precioLamparas * cantidadLamparas) - precioLamparas;
-    } 
-    
-   /* if(marca == "ArgentinaLuz")
-    {
-        precioDescuento= precioLamparas * 40/100;
-        precioFinal = (precioLamparas * cantidadLamparas) - precioLamparas;
+        precioDescuento = precio *50/100;
+        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
     }
-    else{ 
-        precioDescuento = precioLamparas * 30/100;
-        precioFinal = (precioLamparas * cantidadLamparas) - precioLamparas;
-}*/
+    //b
+    if(cantidadLamparas == 5 && marca == "ArgentinaLuz")
+    {
+        precioDescuento = precio *40/100;
+        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
+    }
+    else
+    {
+        precioDescuento = precio *30/100;
+        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
+    }
+    
+    //c
+    if(marca == "ArgentinaLuz" || marca =="FelipeLamparas")
+    {
+        precioDescuento = precio *25/100;
+        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
+    }
+    else
+    {
+        precioDescuento = precio *20/100;
+        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
+    }
+    
+   //e
+   if(cantidadLamparas == 3 && marca=="ArgentinaLuz" )
+   {
+        precioDescuento = precio *15/100;
+        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
+   }
+   else
+   {
+     if(marca == "FelipeLamparas")
+     {
+        precioDescuento = precio *10/100;
+        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
+     }
+     else
+     {
+        precioDescuento = precio *5/100;
+        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
+     }
+   }
+   txtIdprecioDescuento.value = importeFinal;
 
-txtIdprecioDescuento.value = precioFinal;
+   if(importeFinal > 120 )
+   {
+        impuesto = importeFinal *10/100;
+        impuesto = importeFinal + importeFinal;
+        alert("Usted pago " +impuesto+ " de IIBB.");
+   }
+   
+   
 
 }
