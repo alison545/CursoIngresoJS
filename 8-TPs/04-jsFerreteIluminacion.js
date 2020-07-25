@@ -12,79 +12,93 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
-    var precio;
+    
+    var lamparaPrecio;
+    var precioConDescuento;
     var cantidadLamparas;
     var marca;
-    var precioDescuento;
-    var importeFinal;
-    var impuesto;
+    var precio;
+    var IIBB;
 
-    precio = 35;
-    precio = parseInt(precio);
-
-    precioDescuento= parseInt(precioDescuento);
-
-    cantidadLamparas = txtIdCantidad.value;
+    cantidadLamparas= txtIdCantidad.value;
     cantidadLamparas = parseInt(cantidadLamparas);
     marca = Marca.value;
+    lamparaPrecio= 35;
+    lamparaPrecio = parseInt(lamparaPrecio);
+     precio= parseInt(precio);
+    precioConDescuento=parseInt(precioConDescuento);
+    IIBB = parseInt(IIBB);
 
     if(cantidadLamparas > 5)
     {
-        precioDescuento = precio *50/100;
-        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
-    }
-    //b
-    if(cantidadLamparas == 5 && marca == "ArgentinaLuz")
-    {
-        precioDescuento = precio *40/100;
-        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
+        precio = lamparaPrecio * cantidadLamparas;
+        precioConDescuento = precio - (precio*50/100);
+    
     }
     else
     {
-        precioDescuento = precio *30/100;
-        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
-    }
-    
-    //c
-    if(marca == "ArgentinaLuz" || marca =="FelipeLamparas")
-    {
-        precioDescuento = precio *25/100;
-        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
-    }
-    else
-    {
-        precioDescuento = precio *20/100;
-        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
-    }
-    
-   //e
-   if(cantidadLamparas == 3 && marca=="ArgentinaLuz" )
-   {
-        precioDescuento = precio *15/100;
-        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
-   }
-   else
-   {
-     if(marca == "FelipeLamparas")
-     {
-        precioDescuento = precio *10/100;
-        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
-     }
-     else
-     {
-        precioDescuento = precio *5/100;
-        importeFinal = (precio * cantidadLamparas) - precioDescuento ;
-     }
-   }
-   txtIdprecioDescuento.value = importeFinal;
+        if(cantidadLamparas == 5 )
+        {
+            if(marca == "ArgentinaLuz")
+            {
+            precio = lamparaPrecio * cantidadLamparas;
+            precioConDescuento = precio - (precio*40/100);
+            } 
+            else
+            {
+            precio = lamparaPrecio * cantidadLamparas;
+            precioConDescuento = precio - (precio*30/100);
+            }
+        }
+        else
+        {
+            if(cantidadLamparas == 4)
+            {
+                if(marca == "ArgentinaLuz" || marca == "FelipeLamparas")
+                {
+                    precio = lamparaPrecio * cantidadLamparas;
+                    precioConDescuento = precio - (precio*25/100);
+                }
+                else
+                {
+                    precio = lamparaPrecio * cantidadLamparas;
+                    precioConDescuento = precio - (precio*20/100);
+                }
+            }
+            else
+            {
+                if(cantidadLamparas == 3)
+                {
+                    if(marca =="ArgentinaLuz")
+                    {
+                        precio = lamparaPrecio * cantidadLamparas;
+                        precioConDescuento = precio - (precio*15/100);
+                    }
+                    else
+                    {
+                        if(marca == "FelipeLamparas")
+                        {
+                            precio = lamparaPrecio * cantidadLamparas;
+                            precioConDescuento = precio - (precio*10/100);
+                        }
+                        else
+                        {
+                            precio = lamparaPrecio * cantidadLamparas;
+                            precioConDescuento = precio - (precio*5/100);
+                        }
+                    }
+                }
+            }
+        }
+       
 
-   if(importeFinal > 120 )
-   {
-        impuesto = importeFinal *10/100;
-        impuesto = importeFinal + importeFinal;
-        alert("Usted pago " +impuesto+ " de IIBB.");
-   }
-   
-   
+    }
+    if(precioConDescuento > 119)
+    {
+        IIBB = (precioConDescuento *10 /100);
+        alert("Usted pago " +precioConDescuento+ " de IIBB siendo " +IIBB+ " el impuesto que se pago.");
+        precioConDescuento = precioConDescuento + IIBB;
+    }
 
+    txtIdprecioDescuento.value= precioConDescuento;
 }

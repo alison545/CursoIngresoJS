@@ -11,11 +11,9 @@ function mostrarAumento()
 	
 	sueldo = document.getElementById("txtIdImporte").value;
 	sueldo = parseInt(sueldo);
-
-	importe = sueldo * 1.25;
+	importe = sueldo *25/100;
 	
-	/*importe = sueldo *25/100;
-	resultado = sueldo - importe;*/
+	resultado = sueldo - importe;
 	document.getElementById("txtIdResultado").value = resultado;
 	
 	

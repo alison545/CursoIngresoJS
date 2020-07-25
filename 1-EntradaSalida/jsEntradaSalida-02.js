@@ -15,7 +15,7 @@ function mostrar()
 	nombre =maria; //"maria" se la toma como variable sin definir, ya que nunca defini la variable "maria".
 	alert(maria);// variable sin definir.
 	alert(Nombre); //nunca se definio la variable "nombre" con N mayuscula.
-	Si ahorramos letra a la hora de definir variables no ahorramos nota*/
+	Si ahorramos letra a la hora de definir variables nos ahorramos nota*/
 
     //NO AHORRARSE LETRAS NI ERRORES. 
 
