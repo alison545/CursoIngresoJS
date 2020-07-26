@@ -28,15 +28,6 @@ function CalcularPrecio ()
      precio= parseInt(precio);
     precioConDescuento=parseInt(precioConDescuento);
     IIBB = parseInt(IIBB);
-
-    if(cantidadLamparas > 5)
-    {
-        precio = lamparaPrecio * cantidadLamparas;
-        precioConDescuento = precio - (precio*50/100);
-    
-    }
-    else
-    {
         if(cantidadLamparas == 5 )
         {
             if(marca == "ArgentinaLuz")
@@ -90,9 +81,8 @@ function CalcularPrecio ()
                 }
             }
         }
-       
-
-    }
+    precio = lamparaPrecio * cantidadLamparas;
+    precioConDescuento = precio - (precio*50/100);
     if(precioConDescuento > 119)
     {
         IIBB = (precioConDescuento *10 /100);
