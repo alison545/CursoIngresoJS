@@ -36,3 +36,4 @@ function mostrar()
 	//<= >= es mas costoso usar estos, le pedimos al microprocesador que trabaje 2 veces.
 	
 }//FIN DE LA FUNCIÓN
+
