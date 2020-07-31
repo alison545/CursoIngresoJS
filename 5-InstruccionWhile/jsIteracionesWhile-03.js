@@ -10,4 +10,6 @@ function mostrar()
 		claveIngresada = prompt("Reingrese el número clave.");
 	}
 
+	alert("INGRESO");
+
 }//FIN DE LA FUNCIÓN

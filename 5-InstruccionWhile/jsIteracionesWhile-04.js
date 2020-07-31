@@ -5,5 +5,10 @@ function mostrar()
 {
 	var numeroIngresado;
 	numeroIngresado = prompt("ingrese un número entre 0 y 10.");
+
+	while()
+	{
+		
+	}
 	
 }//FIN DE LA FUNCIÓN
