@@ -6,9 +6,11 @@ function mostrar()
 	var numeroIngresado;
 	numeroIngresado = prompt("ingrese un número entre 0 y 10.");
 
-	while()
+	while(numeroIngresado <0 || numeroIngresado >9)
 	{
-		
+		numeroIngresado = prompt("ingrese un número entre 0 y 10.");
 	}
+
+	alert("Bien!!");
 	
 }//FIN DE LA FUNCIÓN
