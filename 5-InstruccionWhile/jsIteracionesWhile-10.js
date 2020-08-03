@@ -15,15 +15,28 @@ function mostrar()
 	//declarar contadores y variables 
 	var respuesta;
 	var numeroIngresado;
-	var sumaNegativos=0;
+	var sumaNegativos=0;//seria el acumulador
+	var sumaPositivos=0;
 
 	respuesta="si";
 
 	while(respuesta=="si")
 	{
-		
+		numeroIngresado=prompt("Ingresar numeros");
+		numeroIngresado=parseInt(numeroIngresado);
+
+		if(numeroIngresado<0)
+		{
+			sumaNegativos= sumaNegativos + numeroIngresado;
+		}
+		else
+		{
+			sumaPositivos= sumaPositivos + numeroIngresado;
+		}
+
 		respuesta=prompt("desea continuar?");
 	}//fin del while
 
-	document.write("la suma de negativos es :"+sumaNegativos);
+	document.write("la suma de negativos es :"+sumaNegativos+ "<br>");
+	document.write("la suma de positivos da :" +sumaPositivos);
 }//FIN DE LA FUNCIÓN

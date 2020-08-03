@@ -9,11 +9,11 @@ function SacarResto()
 	var numdivisor;
 	var resto;
 
-	numdividendo = parseInt(numdividendo);
-	numdivisor = parseInt(numdivisor);
-
 	numdividendo = document.getElementById("txtIdNumeroDividendo").value;
 	numdivisor = document.getElementById("txtIdNumeroDivisor").value; 
+	
+	numdividendo = parseInt(numdividendo);
+	numdivisor = parseInt(numdivisor);
 
 	resto = numdividendo % numdivisor;
 

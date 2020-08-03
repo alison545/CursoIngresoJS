@@ -11,75 +11,36 @@ function mostrar()
 	//iniciar variables
 	banderaDelPrimero="es el primero";
 	respuesta='si';
+
 	while(respuesta=="si")
 	{
-		
-		respuesta=prompt("desea continuar?");
-	}
-	txtIdMaximo.value=numeroMaximo;
-	txtIdMinimmo.value=numeroMinimo;
-
-	/*
-Al presionar el botón pedir  números  hasta que el usuario quiera,
-mostrar el número máximo y el número mínimo ingresado.
-function mostrar()
-{	// declarar variables
-	var banderaDelPrimero;
-	var numeroIngresado;
-	var numeroMaximo;
-	var numeroMinimo;
-	var respuesta;
-	//iniciar variables
-	banderaDelPrimero=1;
-	respuesta='si';
-
-	
-	while(respuesta=="si")
-	{
-		numeroIngresado = prompt("Ingrese un numero: ");
+		numeroIngresado=prompt("Ingresar numeros");
 		numeroIngresado = parseInt(numeroIngresado);
 
-
-
-		if(banderaDelPrimero == 1 || numeroIngresado>numeroMaximo)
+		if(banderaDelPrimero =="es el primero")
 		{
-			numeroMaximo = numeroIngresado;
+			numeroMaximo=numeroIngresado;
+			numeroMinimo=numeroIngresado;
+			banderaDelPrimero ="Ya no es el primero";
 		}
-		if(banderaDelPrimero == 1 || numeroIngresado<numeroMinimo)
-		{
-			numeroMinimo = numeroIngresado;
-		}
-		banderaDelPrimero = 0;
-
-
-		//otra forma de hacerlo.
-		if(banderaDelPrimero == 1 )
-		{
-			numeroMaximo = numeroIngresado;
-			numeroMinimo = numeroIngresado;
-			banderaDelPrimero = 0;
-		}
-		else
+		else /*la condicion de bandera tiene que estar sujeto a un if porque la primera entrada no tengo que evaluar si el numero 
+		anterior es mayor o menor al numero max o min porque es la primera entrada. A la segunda si.*/
 		{
 			if(numeroIngresado>numeroMaximo)
 			{
-				numeroMaximo = numeroIngresado;
+				numeroMaximo=numeroIngresado;
 			}
-
+			
 			if(numeroIngresado<numeroMinimo)
 			{
-				numeroMinimo = numeroIngresado;
+				numeroMinimo=numeroIngresado;
 			}
 		}
-
-		
-
-	
 		respuesta=prompt("desea continuar?");
 	}
+
+
 	txtIdMaximo.value=numeroMaximo;
 	txtIdMinimo.value=numeroMinimo;
-}//FIN DE LA FUNCIÓN*/
-
 
 }//FIN DE LA FUNCIÓN
