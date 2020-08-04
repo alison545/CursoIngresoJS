@@ -1,6 +1,6 @@
 /*
 Al presionar el botón pedir  números  hasta que el usuario quiera,
-mostrar el número máximo y el número mínimo ingresado.*/
+mostrar el número máximo y el número mínimo ingresado. Morel Alison*/
 function mostrar()
 {	// declarar variables
 	var banderaDelPrimero;
@@ -30,8 +30,7 @@ function mostrar()
 			{
 				numeroMaximo=numeroIngresado;
 			}
-			
-			if(numeroIngresado<numeroMinimo)
+			else
 			{
 				numeroMinimo=numeroIngresado;
 			}
