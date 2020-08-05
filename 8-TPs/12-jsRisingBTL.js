@@ -8,6 +8,8 @@ C.	Estado civil, 1-para soltero, 2-para casados, 3-para divorciados y 4-para viu
 D.	Sueldo bruto, no menor a 8000.
 E.	Número de legajo, numérico de 4 cifras, sin ceros a la izquierda.
 F.	Nacionalidad, “A” para argentinos, “E” para extranjeros, “N” para nacionalizados.
+
+ Morel Alison
  */
 function ComenzarIngreso () 
 {
@@ -94,20 +96,20 @@ function ComenzarIngreso ()
 			estadoCivilIngresado="Viudo";
 			break;
 	}
-	
-	/*switch(nacionalidadIngresada) no se si se puede, sera que no lo toma porque esas letras no estan en el html validadas.
+
+	switch(nacionalidadIngresada)
 	{
 		case "A":
-			txtIdNacionalidad.value="Argentino";
+			nacionalidadIngresada ="Argentino";
 			break;
-		case "B":
-			txtIdNacionalidad.value="Extranjero";
+		case "E":
+			nacionalidadIngresada="Extranjero";
 			break;
 		case "N":
-			txtIdNacionalidad.value="Nacionalizados";
+			nacionalidadIngresada="Nacionalizado";
 			break;
-	}*/
-
+	}
+	
 	//mostrar
 	txtIdEdad.value=edadIngresada;
 	txtIdSexo.value=sexoIngresado;
