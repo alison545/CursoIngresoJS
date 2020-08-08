@@ -14,4 +14,128 @@ f) El tipo mas caro. */
 function mostrar()
 {
     
+    var tipo;
+    var cantidadBolsas;
+    var precioPorBolsa;
+    var descuento;
+    var importeConDescuento;
+    var acumuladorArena=0;
+    var acumuladorCal=0;//NUNCA OLVIDAR INICIALIZAR LAS VARIABLES.
+    var acumuladorCemento=0;
+    var tipoConMascantidadDeBolsas;
+    var precioArena=0;
+    var precioCal=0;
+    var precioCemento=0;
+    var tipoMasCaro;
+    var respuesta;
+
+    var importeTotalAPagar=0;
+
+    respuesta="Si";
+
+    while(respuesta =="Si")
+    {
+        //tomo datos y valido
+        tipo=prompt("Ingresar productos, arena, cal o cemento");
+        while(tipo != "arena" && tipo != "cal" && tipo!="cemento")
+        {
+            tipo = prompt("Reingresar productos validos");
+        }
+
+        cantidadBolsas=prompt("Ingresar cantidad de bolsas a comprar");
+        cantidadBolsas=parseInt(cantidadBolsas);
+        while(isNaN(cantidadBolsas) || cantidadBolsas<1)
+        {
+            cantidadBolsas=prompt("Reingresar cantidad de bolsas a comprar");
+            cantidadBolsas=parseInt(cantidadBolsas);
+        }
+
+        precioPorBolsa=prompt("Ingresar el precio");
+        precioPorBolsa=parseInt(precioPorBolsa);
+        while(isNaN(precioPorBolsa) || precioPorBolsa <1)
+        {
+            precioPorBolsa=prompt("Ingresar el precio");
+            precioPorBolsa=parseInt(precioPorBolsa);
+        }
+
+        //agregar comentario.
+        if(cantidadBolsas > 10)
+        {
+            descuento = (precioPorBolsa*15/100);
+            importeConDescuento = precioPorBolsa - descuento; 
+        }
+        else{
+                if(cantidadBolsas > 30)
+                {
+                    descuento = (precioPorBolsa*25/100);
+                    importeConDescuento = precioPorBolsa - descuento;
+                }
+            }        
+
+            importeTotalAPagar = importeTotalAPagar+precioPorBolsa;
+
+        respuesta= prompt("Desea ingresar mas productos wacho Si/No");
+    }//fin del while
+
+    
+    /*switch(tipo)
+    {
+        case "arena":
+            acumuladorArena += cantidadBolsas;
+            precioArena += precioPorBolsa;
+            break;
+        case "cal":
+            acumuladorCal += cantidadBolsas;
+            precioCal += precioPorBolsa;
+            break;
+        case "cemento":
+            acumuladorCemento += cantidadBolsas;
+            precioCemento += precioPorBolsa;
+            break;
+    }
+
+    if(acumuladorArena>acumuladorCal && acumuladorArena>acumuladorCemento)
+    {
+        tipoConMascantidadDeBolsas = "arena";
+    }
+    else
+    {
+        if(acumuladorCal>acumuladorArena && acumuladorCal>acumuladorCemento)
+        {
+            tipoConMascantidadDeBolsas = "cal";
+        }
+        else
+        {
+            if(acumuladorCemento>acumuladorArena && acumuladorCemento>acumuladorCal)
+            {
+                tipoConMascantidadDeBolsas ="cemento";
+            }
+        }
+    }
+
+    if(precioArena>precioCal && precioArena>precioCemento)
+    {
+        tipoMasCaro = "arena";
+    }
+    else
+    {
+        if(precioCal>precioArena && precioCal > precioCemento)
+        {
+            tipoMasCaro = "cal";
+        }
+        else
+        {
+            if(precioCemento>precioArena && precioCemento>precioCal)
+            {
+                tipoMasCaro = "cemento";
+            }
+        }
+    }*/
+
+    document.write("El importe total bruto, sin descuento es: "+importeTotalAPagar+ "<br>");
+    document.write("Importe total con descuento: " +importeConDescuento+ "<br>");
+    //document.write("El tipo con mas cantidad de bolsas" +tipoConMascantidadDeBolsas+ "<br>");
+    //document.write("El tipo mas caro es: " +tipoMasCaro);
+    //importe total es la suma de los precios de la cantidad de prodcutos que ingrese.
+    //importe total  con descuento que seria la suma de los precios .
 }

@@ -22,12 +22,17 @@ function mostrar()
 	var contadorViudosMayores=0;
 	var contadorSolteros=0;
 	var contadorViudos=0;
+	var contadorMayoresMasTemperatura=0;
+	
+	var acumuladorEdadSolteros=0;
+	var promedioEdadSolteros;
 
 	/*Traten de probar armarse una lista con los testeo posible que
 	 pasa si no ingresan nada si ingresan varios o solo 1 y si funciona con todos.... Xelente*/
 
 	while(respuesta =="si")
 	{
+		//Tomo datos y valido.
 		nombre=prompt("Ingresar nombre");
 		
 		edad= prompt("Ingresar edad");
@@ -52,7 +57,7 @@ function mostrar()
 
 		temperatura = prompt("Ingresar temperatura corporal");
 		temperatura=parseInt(temperatura);
-		while(temperatura<0 || isNaN(temperatura))
+		while(temperatura<29 || temperatura>45 || isNaN(temperatura))
 		{
 			temperatura = prompt("Ingresar temperatura corporal");
 			temperatura=parseInt(temperatura);
@@ -75,52 +80,46 @@ function mostrar()
 
 		/*b) Cuantos mayores de edad estan viudos.
 		c) La cantidad de hombres que hay solteros o viudos.*/
-		//no hay switch porque en casado no me pide nada y no se bien si siempre hay que poner default si o si o puede ir sin el.
-		if( edad>17 && estadoCivil == "viudo")
-		{
-			contadorViudosMayores++;
-		}
+		//no hay switch porque en casado no me pide nada y no se bien si siempre hay que poner default si o si o puede ir sin el. 
+		//PUEDE IR SIN DEFAULT EL SWITCH.
 
-		if(sexo == "m" && estadoCivil=="viudo")
-		{
-			contadorViudos++;
-		}
-			else
-			{
-				if(sexo == "m" && estadoCivil=="soltero")
-				{
-					contadorSolteros++;//me falto agregarle el +1;
-				}
-			}
-
-		/*switch(estadoCivil)
+		switch(estadoCivil)
 		{
 			case "soltero":
-				contadorSolteros++;
+				if(sexo == "m")
+				{
+					acumuladorEdadSolteros += edad;
+					contadorSolteros++;
+				
+				}
 				break;
 			case "viudo":
-				if(edad > 60)
+				if(edad > 17)
 				{
 					contadorViudosMayores++;
 				}
-				contadorViudos++;
+
+				if(sexo == "m")
+				{
+					contadorViudos++;
+				}
 				break;
-			default:
-				alert("Es casado");
-				break;
-		}*/
-
-
-
-
+		}
+		//d) cuantas personas de la tercera edad( mas de 60 años) , tienen mas de 38 de temperatura.
+		if(temperatura > 37 && edad >60)
+		{
+			contadorMayoresMasTemperatura++;
+		}
+		
 		respuesta=prompt("Ingresar mas datos, si/no");
 	}//fin while
-
+//e) El promedio de edad entre los hombres solteros.
 	
+	promedioEdadSolteros=acumuladorEdadSolteros/contadorSolteros;
 
 	document.write("El nombre de la persona con mas temperatura es: " +nombreMasTemperatura+ "<br>");
 	document.write("Los mayores de edad que estan viudos son: " +contadorViudosMayores+ "<br>");
 	document.write("La cantidad de hombres solteros " +contadorSolteros+ " y la cantidad de hombres viudos " +contadorViudos+ "<br>");
-
-
+	document.write("La cantidad de personas de la tercera edad con mas temperatura es: " +contadorMayoresMasTemperatura+ "<br>");
+	document.write("El promedio de edad entre los hombres solteros es: " +promedioEdadSolteros);
 }
