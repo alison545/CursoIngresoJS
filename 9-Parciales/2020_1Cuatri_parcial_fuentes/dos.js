@@ -26,7 +26,7 @@ function mostrar()
     var precioArena=0;
     var precioCal=0;
     var precioCemento=0;
-    var tipoMasCaro;
+    var tipoMasCaro;//hay que usar bandera.
     var respuesta;
 
     var importeTotalAPagar=0;
@@ -67,32 +67,33 @@ function mostrar()
         else{
                 if(cantidadBolsas > 30)
                 {
-                    descuento = (precioPorBolsa*25/100);
+                    descuento = (precioPorBolsa*25/100);//NO HACER ESOOO, SOLO PONER EL DESCUENTO  Y ABAJO HACER LA CUENTA.
                     importeConDescuento = precioPorBolsa - descuento;
                 }
             }        
 
             importeTotalAPagar = importeTotalAPagar+precioPorBolsa;
-
+            
+        switch(tipo)
+            {
+                case "arena":
+                    acumuladorArena += cantidadBolsas;
+                    precioArena += precioPorBolsa;
+                    break;
+                case "cal":
+                    acumuladorCal += cantidadBolsas;
+                    precioCal += precioPorBolsa;
+                    break;
+                case "cemento":
+                    acumuladorCemento += cantidadBolsas;
+                    precioCemento += precioPorBolsa;
+                    break;
+            }
         respuesta= prompt("Desea ingresar mas productos wacho Si/No");
     }//fin del while
 
     
-    /*switch(tipo)
-    {
-        case "arena":
-            acumuladorArena += cantidadBolsas;
-            precioArena += precioPorBolsa;
-            break;
-        case "cal":
-            acumuladorCal += cantidadBolsas;
-            precioCal += precioPorBolsa;
-            break;
-        case "cemento":
-            acumuladorCemento += cantidadBolsas;
-            precioCemento += precioPorBolsa;
-            break;
-    }
+    
 
     if(acumuladorArena>acumuladorCal && acumuladorArena>acumuladorCemento)
     {
@@ -112,7 +113,7 @@ function mostrar()
             }
         }
     }
-
+//aca va bandera.NO HAY QUE ACUMULARLO,solo el precio mas caro
     if(precioArena>precioCal && precioArena>precioCemento)
     {
         tipoMasCaro = "arena";
@@ -130,12 +131,12 @@ function mostrar()
                 tipoMasCaro = "cemento";
             }
         }
-    }*/
+    }
 
     document.write("El importe total bruto, sin descuento es: "+importeTotalAPagar+ "<br>");
     document.write("Importe total con descuento: " +importeConDescuento+ "<br>");
-    //document.write("El tipo con mas cantidad de bolsas" +tipoConMascantidadDeBolsas+ "<br>");
-    //document.write("El tipo mas caro es: " +tipoMasCaro);
+    document.write("El tipo con mas cantidad de bolsas" +tipoConMascantidadDeBolsas+ "<br>");
+    document.write("El tipo mas caro es: " +tipoMasCaro);
     //importe total es la suma de los precios de la cantidad de prodcutos que ingrese.
     //importe total  con descuento que seria la suma de los precios .
 }
