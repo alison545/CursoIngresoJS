@@ -30,16 +30,14 @@ function mostrar()//PRIMERO PENSAR DESPUES CODEAR.
 	var acumuladorAlturaMujer;
 	var contadorMujeres;
 	var promedioAlturaMujeres;
-
 	var i;
-
-	var acumuladorEdadMujerJoven;
 	var nombreEdadMujerJoven;
-	
+	var edadminima;
+	//SIEMPRE INICIALIZAR LAS VARIABLES DEBAJO, NO SEGUIDAS ARRIBA, ejemplo: var acumulador=0; NO!!.
 	acumuladorEdadVieja=0;
 	acumuladorAlturaMujer=0;
 	contadorMujeres=0;
-	acumuladorEdadMujerJoven=0;
+	edadminima=0;
 
 	for(i=0; i<2; i++)
 	{
@@ -109,25 +107,26 @@ function mostrar()//PRIMERO PENSAR DESPUES CODEAR.
 			//acumuladorAlturaMujer=altura;//NO
 			acumuladorAlturaMujer += altura;
 			contadorMujeres++;
-			if(acumuladorEdadMujerJoven<edad)//por ahi va un switch.
-			{	acumuladorEdadMujerJoven=edad;//SON 10 CASOS, ALGO TIENE QUE VER.POR AHI VA CONTADOR.
-				nombreEdadMujerJoven=nombre;
-			}
 		}
 		
-		if(sexo == "f" )
+		if(edadminima==0)
 		{
-			acumuladorEdadMujerJoven=edad;
+			edadminima=edad;
 			nombreEdadMujerJoven=nombre;
 		}
 		else
 		{
-			if(sexo=="f" && acumuladorEdadMujerJoven>edad){}
+			if(edad<edadminima)
+			{
+				edadminima=edad;
+				nombreEdadMujerJoven=nombre;
+			}
 		}
 
 	}// fin for.
 
 	promedioAlturaMujeres= acumuladorAlturaMujer/contadorMujeres;
+	promedioAlturaMujeres=promedioAlturaMujeres.toFixed(2);//Para controlar la cantidad de decimales deespues de la coma.
 
 	console.log("El nombre de persona mas vieja: "+nombreEdadVieja);
 	console.log("El promedio de la altura de las mujeres es: " +promedioAlturaMujeres);

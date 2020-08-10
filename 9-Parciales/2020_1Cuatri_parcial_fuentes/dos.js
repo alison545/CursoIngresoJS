@@ -23,13 +23,16 @@ function mostrar()
     var acumuladorCal=0;//NUNCA OLVIDAR INICIALIZAR LAS VARIABLES.
     var acumuladorCemento=0;
     var tipoConMascantidadDeBolsas;
-    var precioArena=0;
-    var precioCal=0;
-    var precioCemento=0;
     var tipoMasCaro;//hay que usar bandera.
     var respuesta;
-
+    var banderaTipoMasCaro="Es primer producto";
+    var precioMasCaro;
+    var acumuladorBolsas=0;
     var importeTotalAPagar=0;
+
+    acumuladorBolsas=acumuladorBolsas+cantidadBolsas;
+    importeTotalAPagar=importeTotalAPagar+precio;
+    
 
     respuesta="Si";
 
@@ -58,42 +61,40 @@ function mostrar()
             precioPorBolsa=parseInt(precioPorBolsa);
         }
 
-        //agregar comentario.
-        if(cantidadBolsas > 10)
+        //aca va bandera.NO HAY QUE ACUMULARLO,solo el precio mas caro
+   
+        if(banderaTipoMasCaro="Es primer producto")
         {
-            descuento = (precioPorBolsa*15/100);
-            importeConDescuento = precioPorBolsa - descuento; 
+            precioMasCaro=precio;
+            tipoMasCaro=tipo;
+            banderaTipoMasCaro="Ya no es el primer producto";
         }
-        else{
-                if(cantidadBolsas > 30)
-                {
-                    descuento = (precioPorBolsa*25/100);//NO HACER ESOOO, SOLO PONER EL DESCUENTO  Y ABAJO HACER LA CUENTA.
-                    importeConDescuento = precioPorBolsa - descuento;
-                }
-            }        
+        else
+        {
+            if(precio>precioMasCaro)
+            {
+                precioMasCaro=precio;
+                tipoMasCaro=tipo;
+            }
+        }
 
-            importeTotalAPagar = importeTotalAPagar+precioPorBolsa;
-            
         switch(tipo)
             {
                 case "arena":
                     acumuladorArena += cantidadBolsas;
-                    precioArena += precioPorBolsa;
+                    //precioArena += precioPorBolsa;
                     break;
                 case "cal":
                     acumuladorCal += cantidadBolsas;
-                    precioCal += precioPorBolsa;
+                    //precioCal += precioPorBolsa;
                     break;
                 case "cemento":
                     acumuladorCemento += cantidadBolsas;
-                    precioCemento += precioPorBolsa;
+                    //precioCemento += precioPorBolsa;
                     break;
             }
         respuesta= prompt("Desea ingresar mas productos wacho Si/No");
     }//fin del while
-
-    
-    
 
     if(acumuladorArena>acumuladorCal && acumuladorArena>acumuladorCemento)
     {
@@ -113,25 +114,27 @@ function mostrar()
             }
         }
     }
-//aca va bandera.NO HAY QUE ACUMULARLO,solo el precio mas caro
-    if(precioArena>precioCal && precioArena>precioCemento)
-    {
-        tipoMasCaro = "arena";
-    }
-    else
-    {
-        if(precioCal>precioArena && precioCal > precioCemento)
+
+
+//agregar comentario.
+        if(acumuladorBolsas > 30)
         {
-            tipoMasCaro = "cal";
+            descuento = 25; 
         }
-        else
-        {
-            if(precioCemento>precioArena && precioCemento>precioCal)
-            {
-                tipoMasCaro = "cemento";
-            }
-        }
-    }
+        else{
+                if(acumuladorBolsas > 10)
+                {
+                    descuento = 15;//NO HACER ESOOO, SOLO PONER EL DESCUENTO  Y ABAJO HACER LA CUENTA.
+                }
+                else
+                {
+                    descuento=0;
+                }
+            }        
+
+
+    
+
 
     document.write("El importe total bruto, sin descuento es: "+importeTotalAPagar+ "<br>");
     document.write("Importe total con descuento: " +importeConDescuento+ "<br>");

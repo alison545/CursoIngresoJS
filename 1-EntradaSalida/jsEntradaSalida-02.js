@@ -16,7 +16,7 @@ NOTA:pedir datos por "prompt()" y mostrar por console.log()*/
 function mostrar()
 {
 	//esta mal usar banderas cuando no lo necesitas.
-
+	var nombre;
 	var sexo;
 	var altura;
 	var edad;
@@ -86,7 +86,7 @@ function mostrar()
 		}
 		else
 		{
-			if(edadMasVieja<edad)
+			if(edad>edadMasVieja)
 			{
 				edadMasVieja=edad;
 				nombreEdadVieja=nombre;
@@ -105,6 +105,10 @@ function mostrar()
 			edadAdolescente=edad;
 			nombreAdolescente=nombre;
 			banderaAdolescente ="Ya no es el primer ingreso.";
+		}
+		else
+		{
+			nombreAdolescente="No se ingresaron adolescentes";
 		}
 		
 		respuesta = prompt("Ingresar mas datos? si/no");

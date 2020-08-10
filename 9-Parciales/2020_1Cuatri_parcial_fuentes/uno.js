@@ -15,7 +15,7 @@ function mostrar()
 {
 	
 	var tipo;
-	var unidades;
+	var unidades;//contador
 	var precio;
 	var cantidadUnidades;
 	var marca;
@@ -49,10 +49,10 @@ function mostrar()
 	acumuladorJabon=0;
 	contadorJabon=0;
 
-	while(unidades < 3)//cambiar es 5
+	while(unidades < 5)//cambiar es 5, cambiado.
 	{
 		//tomo datos y valido.
-		tipo = prompt("Ingresar tipos de productos.");
+		tipo = prompt("Ingresar tipos de productos, 'Barbijo' , 'Jabón' o 'Alcohol' ");
 		while (tipo != "Jabon" && tipo !="Barbijo" && tipo != "Alcohol")
 		{
 			tipo = prompt("Reingresar tipos de productos.");
@@ -73,70 +73,70 @@ function mostrar()
 			cantidadUnidades = prompt("Reingresar la cantidad de Unidades");
 		}
 
-		marca =prompt("Ingresar la marca");
+		marca = prompt("Ingresar la marca");
 		fabricante =prompt("Ingresar el fabricante");
 		unidades++;
 		
 		//proceso-------------------------------------------------------------------------------------------------------------------
+	
 		switch(tipo)
 		{
 			case "Alcohol":
-				if(banderaAlcohol == "es el primer alcohol")//cambiar banderas por 1 y 0.
+				if(banderaAlcohol =="es el primer alcohol")
 				{
 					precioBaratoAlcohol=precio;
-					cantidadAlcoholBarato = cantidadUnidades;
+					cantidadAlcoholBarato=cantidadUnidades;
 					fabricanteAlcoholBarato = fabricante;
-					acumuladorAlcohol= acumuladorAlcohol + cantidadUnidades;
-					banderaAlcohol = "Ya no es el primero";
+					acumuladorAlcohol+=cantidadUnidades;
+					banderaAlcohol = "Ya no es el primer alcohol";
 				}
 				else
 				{
-					if(precio < precioBaratoAlcohol)
+					if(precio<precioBaratoAlcohol)//edad
 					{
-						precioBaratoAlcohol = precio;
-						cantidadAlcoholBarato =cantidadUnidades;
-						fabricanteAlcoholBarato = fabricante;
-						acumuladorAlcohol += cantidadUnidades ;
+						precioBaratoAlcohol=precio;
+						cantidadAlcoholBarato=cantidadUnidades;
+						fabricanteAlcoholBarato=fabricante;
+						acumuladorAlcohol+=cantidadUnidades;
 					}
 				}
 				contadorAlcohol++;
-					break;
+				break;
 			case "Barbijo":
-					acumuladorBarbijo += cantidadUnidades;
-					contadorBarbijo++;
-					break;
+				acumuladorBarbijo += cantidadUnidades;
+				contadorBarbijo++;
+				break;
 			case "Jabon":
-					acumuladorJabon += cantidadUnidades;
-					contadorJabon++;
-					break;
+				acumuladorJabon += cantidadUnidades;
+				contadorJabon++;
+				break;
 		}
-
 		}//fin del while
 
 		if(acumuladorAlcohol>acumuladorBarbijo && acumuladorAlcohol>acumuladorJabon)
 		{
-			tipoMasUnidades = "Alcohol";
-			promedio = (acumuladorAlcohol/contadorAlcohol);
+			tipoMasUnidades="Alcohol";
+			promedio=acumuladorAlcohol/contadorAlcohol;
 		}
 		else
 		{
-			if(acumuladorBarbijo>acumuladorAlcohol && acumuladorBarbijo > acumuladorJabon) 
+			if(acumuladorBarbijo>acumuladorAlcohol && acumuladorBarbijo>acumuladorJabon)
 			{
-				tipoMasUnidades = "Barbijo";
-				promedio= (acumuladorBarbijo/contadorBarbijo);
+			tipoMasUnidades="Barbijo";
+			promedio=acumuladorBarbijo/contadorBarbijo;
 			}
 			else
 			{
-				if(acumuladorJabon > acumuladorAlcohol && acumuladorJabon > acumuladorBarbijo)
-				{
-					tipoMasUnidades = "Jabon";
-					promedio = (acumuladorJabon/contadorJabon);
-				}
+				/*if(acumuladorJabon>acumuladorAlcohol && acumuladorJabon>acumuladorBarbijo)
+				{*/
+					tipoMasUnidades="Jabon";
+					promedio=acumuladorJabon/contadorJabon;
+				//}
 			}
 		}
+
 	// mostrar
 	document.write("Alcohol mas barato vale $" +precioBaratoAlcohol+ " la cantidad es " +cantidadAlcoholBarato+ " el fabricante " +fabricanteAlcoholBarato+ "<br>");
 	document.write ("El tipo con mas unidades es " +tipoMasUnidades+ " y el promedio " +promedio+ "<br>");
 	document.write("La cantidad de unidades de jabon es " +acumuladorJabon);
-	
 }
